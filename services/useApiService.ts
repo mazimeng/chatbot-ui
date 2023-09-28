@@ -5,7 +5,7 @@ import { useFetch } from '@/hooks/useFetch';
 export interface GetModelsRequestProps {
   key: string;
 }
-
+const BASE_PATH = '/okey'
 const useApiService = () => {
   const fetchService = useFetch();
 
@@ -27,7 +27,7 @@ const useApiService = () => {
 
   const getModels = useCallback(
     (params: GetModelsRequestProps, signal?: AbortSignal) => {
-      return fetchService.post<GetModelsRequestProps>(`/api/models`, {
+      return fetchService.post<GetModelsRequestProps>(BASE_PATH + `/api/models`, {
         body: { key: params.key },
         headers: {
           'Content-Type': 'application/json',
