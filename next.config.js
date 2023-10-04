@@ -4,7 +4,7 @@ const { i18n } = require('./next-i18next.config');
 const nextConfig = {
   i18n,
   reactStrictMode: true,
-  basePath: '/okey',
+  basePath: process.env.BASE_PATH,
   webpack(config, { isServer, dev }) {
     config.experiments = {
       asyncWebAssembly: true,
@@ -13,6 +13,9 @@ const nextConfig = {
 
     return config;
   },
+  env: {
+    BASE_PATH: process.env.BASE_PATH
+  }
 };
 
 module.exports = nextConfig;

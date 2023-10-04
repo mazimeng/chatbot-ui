@@ -5,7 +5,7 @@ import { useFetch } from '@/hooks/useFetch';
 export interface GetModelsRequestProps {
   key: string;
 }
-const BASE_PATH = '/okey'
+const BASE_PATH = process.env.BASE_PATH
 const useApiService = () => {
   const fetchService = useFetch();
 
